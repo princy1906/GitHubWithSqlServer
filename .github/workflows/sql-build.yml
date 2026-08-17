@@ -30,3 +30,9 @@ jobs:
         working-directory: DatabaseProjectCustomer
         run: |
           dotnet build ./DatabaseProjectCustomer.sqlproj
+
+      - name: Upload DACPAC
+        uses: actions/upload-artifact@v4
+        with:
+          name: database-dacpac
+          path: DatabaseProjectCustomer/bin/Debug/DatabaseProjectCustomer.dacpac
