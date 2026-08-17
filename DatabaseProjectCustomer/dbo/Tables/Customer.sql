@@ -4,6 +4,7 @@ CREATE TABLE [dbo].[Customer] (
     [City]             NVARCHAR (100)  NULL,
     [CreditLimit]      DECIMAL (10, 2) NULL,
     [RegistrationDate] DATE            NULL,
+    PhoneNumber        VARCHAR(20),
     PRIMARY KEY CLUSTERED ([CustomerId] ASC)
 );
 
