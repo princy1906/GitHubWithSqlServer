@@ -20,4 +20,4 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Build SQL Project
-        run: dotnet build DatabaseProjectCustomer.sqlproj
+        run: DatabaseProjectCustomer/DatabaseProjectCustomer.sqlproj
