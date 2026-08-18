@@ -1,0 +1,31 @@
+name: Deploy Database to QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "CI workflow run ID containing the DACPAC"
+        required: true
+        type: string
+
+jobs:
+  deploy-qa:
+    runs-on: [self-hosted, windows, x64]
+
+    steps:
+      - name: Download DACPAC from CI
+        uses: actions/download-artifact@v4
+        with:
+          name: database-dacpac
+          path: ./dacpac
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.run_id }}
+
+      - name: Deploy DACPAC to QA
+        shell: pwsh
+        run: |
+          sqlpackage `
+            /Action:Publish `
+            /SourceFile:"./dacpac/DatabaseProjectCustomer.dacpac" `
+            /TargetConnectionString:"Server=LP506\MSSQLSERVER1;Database=Customer_QA;Integrated Security=True;TrustServerCertificate=True;"
