@@ -1,0 +1,32 @@
+name: Deploy Database to Dev
+
+on:
+  workflow_run:
+    workflows:
+      - SQL Database CI
+    types:
+      - completed
+
+jobs:
+  deploy-dev:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    runs-on: [self-hosted, windows, x64]
+
+    steps:
+      - name: Download DACPAC from CI
+        uses: actions/download-artifact@v4
+        with:
+          name: database-dacpac
+          path: ./dacpac
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Deploy DACPAC to Dev
+        shell: pwsh
+        run: |
+          sqlpackage `
+            /Action:Publish `
+            /SourceFile:"./dacpac/DatabaseProjectCustomer.dacpac" `
+            /TargetConnectionString:"Server=LP506\MSSQLSERVER1;Database=CustomerDev;Integrated Security=True;TrustServerCertificate=True;"

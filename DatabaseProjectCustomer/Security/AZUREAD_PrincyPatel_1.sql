@@ -1,0 +1,5 @@
+CREATE USER [AZUREAD\PrincyPatel] FOR LOGIN [AZUREAD\PrincyPatel];
+
+
+GO
+
