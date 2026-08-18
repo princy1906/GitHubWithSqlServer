@@ -1,15 +1,16 @@
-name: Deploy Database to QA
+name: Deploy Database to Dev
 
 on:
-  workflow_dispatch:
-    inputs:
-      run_id:
-        description: "CI workflow run ID containing the DACPAC"
-        required: true
-        type: string
+  workflow_run:
+    workflows:
+      - SQL Database CI
+    types:
+      - completed
 
 jobs:
-  deploy-qa:
+  deploy-dev:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     runs-on: [self-hosted, windows, x64]
 
     steps:
@@ -20,12 +21,12 @@ jobs:
           path: ./dacpac
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          run-id: ${{ inputs.run_id }}
+          run-id: ${{ github.event.workflow_run.id }}
 
-      - name: Deploy DACPAC to QA
+      - name: Deploy DACPAC to Dev
         shell: pwsh
         run: |
           sqlpackage `
             /Action:Publish `
             /SourceFile:"./dacpac/DatabaseProjectCustomer.dacpac" `
-            /TargetConnectionString:"Server=LP506\MSSQLSERVER1;Database=CustomerQA;Integrated Security=True;TrustServerCertificate=True;"
+            /TargetConnectionString:"Server=LP506\MSSQLSERVER1;Database=CustomerDev;Integrated Security=True;TrustServerCertificate=True;"
