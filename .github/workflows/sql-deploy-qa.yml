@@ -23,7 +23,7 @@ jobs:
           run-id: ${{ inputs.run_id }}
 
       - name: Deploy DACPAC to QA
-        shell: pwsh
+        shell: powershell
         run: |
           sqlpackage `
             /Action:Publish `

@@ -24,7 +24,7 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
 
       - name: Deploy DACPAC to Dev
-        shell: pwsh
+        shell: powershell
         run: |
           sqlpackage `
             /Action:Publish `
