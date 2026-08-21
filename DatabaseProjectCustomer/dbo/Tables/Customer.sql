@@ -5,8 +5,14 @@ CREATE TABLE [dbo].[Customer] (
     [CreditLimit]      DECIMAL (10, 2) NULL,
     [RegistrationDate] DATE            NULL,
     PhoneNumber        VARCHAR(20),
-    [Address]          VARCHAR(500)
-    PRIMARY KEY CLUSTERED ([CustomerId] ASC)
+    [Address]          VARCHAR(500),
+    [StatusId]         INT             NULL,
+    CONSTRAINT [PK_Customer]
+        PRIMARY KEY CLUSTERED ([CustomerId] ASC),
+
+    CONSTRAINT [FK_Customer_Status]
+        FOREIGN KEY ([StatusId])
+        REFERENCES [dbo].[Status] ([StatusID])
 );
 
 
