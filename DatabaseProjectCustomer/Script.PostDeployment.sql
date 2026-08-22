@@ -1,47 +1,47 @@
 /* ============================================
-   Customer Status Master Data
+   Status Master Data
    ============================================ */
 
 IF NOT EXISTS
 (
     SELECT 1
-    FROM dbo.CustomerStatus
+    FROM [dbo].[Status]
     WHERE StatusName = 'Active'
 )
 BEGIN
-    INSERT INTO dbo.CustomerStatus (StatusName)
+    INSERT INTO [dbo].[Status] (StatusName)
     VALUES ('Active');
 END;
 
 IF NOT EXISTS
 (
     SELECT 1
-    FROM dbo.CustomerStatus
+    FROM [dbo].[Status]
     WHERE StatusName = 'Inactive'
 )
 BEGIN
-    INSERT INTO dbo.CustomerStatus (StatusName)
+    INSERT INTO [dbo].[Status] (StatusName)
     VALUES ('Inactive');
 END;
 
 IF NOT EXISTS
 (
     SELECT 1
-    FROM dbo.CustomerStatus
+    FROM [dbo].[Status]
     WHERE StatusName = 'Suspended'
 )
 BEGIN
-    INSERT INTO dbo.CustomerStatus (StatusName)
+    INSERT INTO [dbo].[Status] (StatusName)
     VALUES ('Suspended');
 END;
 
 IF NOT EXISTS
 (
     SELECT 1
-    FROM dbo.CustomerStatus
+    FROM [dbo].[Status]
     WHERE StatusName = 'Pending'
 )
 BEGIN
-    INSERT INTO dbo.CustomerStatus (StatusName)
+    INSERT INTO [dbo].[Status] (StatusName)
     VALUES ('Pending');
 END;
