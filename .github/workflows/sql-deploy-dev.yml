@@ -59,6 +59,8 @@ jobs:
         shell: powershell
         env:
           CONNECTION_STRING: ${{ secrets.DEV_CONNECTION_STRING }}
+          AdminRoleId: ${{ vars.AdminRoleId }}
+          OwnerRoleId: ${{ vars.OwnerRoleId }}
         run: |
           Write-Host "Deploying DACPAC to Dev..."
 
@@ -66,7 +68,9 @@ jobs:
             /Action:Publish `
             /SourceFile:"./dacpac/DatabaseProjectCustomer.dacpac" `
             /TargetConnectionString:"$env:CONNECTION_STRING" `
-            /p:BlockOnPossibleDataLoss=False
+            /p:BlockOnPossibleDataLoss=False `
+            /v:AdminRoleId="$env:AdminRoleId" `
+            /v:OwnerRoleId="$env:OwnerRoleId"
 
       # --------------------------------------------------
       # 4. Deployment completed

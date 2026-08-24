@@ -50,8 +50,15 @@ END;
 
 /* Add Role Master Data */
 
-INSERT INTO [dbo].[Role] ([RoleId], [RoleName])
-VALUES
-    ($(AdminRoleId), 'Admin'),
-    ($(OwnerRoleId), 'Owner');
+IF NOT EXISTS (SELECT 1 FROM [dbo].[Role] WHERE [RoleName] = 'Admin')
+BEGIN
+    INSERT INTO [dbo].[Role] ([RoleId], [RoleName])
+    VALUES ($(AdminRoleId), 'Admin');
+END;
+
+IF NOT EXISTS (SELECT 1 FROM [dbo].[Role] WHERE [RoleName] = 'Owner')
+BEGIN
+    INSERT INTO [dbo].[Role] ([RoleId], [RoleName])
+    VALUES ($(OwnerRoleId), 'Owner');
+END;
 GO
