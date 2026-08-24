@@ -45,3 +45,13 @@ BEGIN
     INSERT INTO [dbo].[Status] (StatusName)
     VALUES ('Pending');
 END;
+
+
+
+/* Add Role Master Data */
+
+INSERT INTO [dbo].[Role] ([RoleId], [RoleName])
+VALUES
+    ($(AdminRoleId), 'Admin'),
+    ($(OwnerRoleId), 'Owner');
+GO
