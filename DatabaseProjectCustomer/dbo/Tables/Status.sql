@@ -4,7 +4,7 @@ CREATE TABLE dbo.Status
     StatusName NVARCHAR(50) NOT NULL,
 
     CONSTRAINT PK_Status
-        PRIMARY KEY (StatusId),
+        PRIMARY KEY CLUSTERED ([StatusId] ASC) (StatusId),
 
     CONSTRAINT UQ_Status_StatusName
         UNIQUE (StatusName)

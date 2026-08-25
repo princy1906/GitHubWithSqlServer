@@ -68,7 +68,7 @@ jobs:
             /Action:Publish `
             /SourceFile:"./dacpac/DatabaseProjectCustomer.dacpac" `
             /TargetConnectionString:"$env:CONNECTION_STRING" `
-            /p:BlockOnPossibleDataLoss=False `
+            /p:BlockOnPossibleDataLoss=True `
             /v:AdminRoleId="$env:AdminRoleId" `
             /v:OwnerRoleId="$env:OwnerRoleId"
 
