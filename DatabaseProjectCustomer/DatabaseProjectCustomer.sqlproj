@@ -15,9 +15,14 @@
     <PostDeploy Include="Script.PostDeployment.sql" />
   </ItemGroup>
 
-  <ItemGroup>
-  <SqlCmdVariable Include="AdminRoleId" />
-  <SqlCmdVariable Include="OwnerRoleId" />
+<ItemGroup>
+  <SqlCmdVariable Include="AdminRoleId">
+    <DefaultValue>0</DefaultValue>
+  </SqlCmdVariable>
+
+  <SqlCmdVariable Include="OwnerRoleId">
+    <DefaultValue>0</DefaultValue>
+  </SqlCmdVariable>
 </ItemGroup>
   
 </Project>
