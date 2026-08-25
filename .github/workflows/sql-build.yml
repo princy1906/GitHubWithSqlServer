@@ -3,7 +3,7 @@ name: SQL Database CI
 on:
   push:
     branches:
-      - develop
+      - main
   workflow_dispatch:
   
 jobs:
@@ -29,7 +29,7 @@ jobs:
       - name: Build SQL Project
         working-directory: DatabaseProjectCustomer
         run: |
-          dotnet build ./DatabaseProjectCustomer.sqlproj
+          dotnet build ./DatabaseProjectCustomer.sqlproj 
 
       - name: Upload DACPAC
         uses: actions/upload-artifact@v4

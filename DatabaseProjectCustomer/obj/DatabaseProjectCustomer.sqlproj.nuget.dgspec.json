@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj": {}
+    "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\GitHubWithSqlServer\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj": {}
   },
   "projects": {
-    "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj": {
+    "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\GitHubWithSqlServer\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj",
+        "projectUniqueName": "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\GitHubWithSqlServer\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj",
         "projectName": "DatabaseProjectCustomer",
-        "projectPath": "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj",
+        "projectPath": "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\GitHubWithSqlServer\\DatabaseProjectCustomer\\DatabaseProjectCustomer.sqlproj",
         "packagesPath": "C:\\Users\\PrincyPatel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\DatabaseProjectCustomer\\obj\\",
+        "outputPath": "C:\\Users\\PrincyPatel\\Desktop\\DatabaseSolution\\GitHubWithSqlServer\\DatabaseProjectCustomer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
