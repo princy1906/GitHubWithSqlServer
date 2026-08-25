@@ -3,7 +3,7 @@ name: SQL Database CI
 on:
   push:
     branches:
-      - main
+      - develop
   workflow_dispatch:
   
 jobs:

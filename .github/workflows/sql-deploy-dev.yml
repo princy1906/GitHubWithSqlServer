@@ -1,17 +1,17 @@
 name: Deploy Database to Dev
 
 on:
-  workflow_dispatch:
-    inputs:
-      run_id:
-        description: "CI workflow run ID containing the DACPAC"
-        required: true
-        type: string
+  workflow_run:
+    workflows: ["SQL Database CI"]
+    types:
+      - completed
 
 jobs:
   deploy-dev:
 
     name: Deploy DACPAC to Dev
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     runs-on: [self-hosted, windows, x64]
 
