@@ -16,13 +16,8 @@
   </ItemGroup>
 
 <ItemGroup>
-  <SqlCmdVariable Include="AdminRoleId">
-    <DefaultValue>0</DefaultValue>
-  </SqlCmdVariable>
-
-  <SqlCmdVariable Include="OwnerRoleId">
-    <DefaultValue>0</DefaultValue>
-  </SqlCmdVariable>
+  <SqlCmdVariable Include="AdminRoleId" />
+  <SqlCmdVariable Include="OwnerRoleId" />
 </ItemGroup>
   
 </Project>

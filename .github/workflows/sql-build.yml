@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Dev
 
     steps:
       - name: Checkout repository
@@ -30,6 +31,16 @@ jobs:
         working-directory: DatabaseProjectCustomer
         run: |
           dotnet build ./DatabaseProjectCustomer.sqlproj
+
+      - name: Build SQL Project
+        working-directory: DatabaseProjectCustomer
+        env:
+          AdminRoleId: ${{ vars.AdminRoleId }}
+          OwnerRoleId: ${{ vars.OwnerRoleId }}
+        run: |
+            dotnet build ./DatabaseProjectCustomer.sqlproj `
+            /p:AdminRoleId="$env:AdminRoleId" `
+            /p:OwnerRoleId="$env:OwnerRoleId"
 
       - name: Upload DACPAC
         uses: actions/upload-artifact@v4
