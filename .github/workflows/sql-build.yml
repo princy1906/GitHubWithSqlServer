@@ -3,13 +3,12 @@ name: SQL Database CI
 on:
   push:
     branches:
-      - develop
+      - main
   workflow_dispatch:
   
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: dev
 
     steps:
       - name: Checkout repository
@@ -30,17 +29,7 @@ jobs:
       - name: Build SQL Project
         working-directory: DatabaseProjectCustomer
         run: |
-          dotnet build ./DatabaseProjectCustomer.sqlproj
-
-      - name: Build SQL Project
-        working-directory: DatabaseProjectCustomer
-        env:
-          AdminRoleId: ${{ vars.AdminRoleId }}
-          OwnerRoleId: ${{ vars.OwnerRoleId }}
-        run: |
-            dotnet build ./DatabaseProjectCustomer.sqlproj `
-            /p:AdminRoleId="$env:AdminRoleId" `
-            /p:OwnerRoleId="$env:OwnerRoleId"
+          dotnet build ./DatabaseProjectCustomer.sqlproj 
 
       - name: Upload DACPAC
         uses: actions/upload-artifact@v4
