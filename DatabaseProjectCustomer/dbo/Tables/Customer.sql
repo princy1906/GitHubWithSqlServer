@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[Customer] (
 
     CONSTRAINT [FK_Customer_Status]
         FOREIGN KEY ([StatusId])
-        REFERENCES [dbo].[Status] ([StatusID])
+        REFERENCES [dbo].[Status] ([StatusId])
 );
 
 
