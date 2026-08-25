@@ -1,0 +1,30 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# Visual Studio Code
+.vscode/
+
+# Build folders
+Debug/
+Release/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# SQL Server / database local files
+*.mdf
+*.ldf
+*.ndf
+
+# User-specific SQL Server files
+*.userprefs
